@@ -112,8 +112,8 @@ def show_similar_images(indices, names):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--index_file", type=str, default='/home/image-retrieval-vit/index/train-all-sheng.h5', help="HDF5 index file path.")
-    parser.add_argument("--faiss_index_file", type=str, default='/home/image-retrieval-vit/index/faiss_index_1.index', help="FAISS index file path.")
+    parser.add_argument("--index_file", type=str, default='index/train-all-sheng.h5', help="HDF5 index file path.")
+    parser.add_argument("--faiss_index_file", type=str, default='index/faiss_index_1.index', help="FAISS index file path.")
     args = vars(parser.parse_args())
 
     # 加载特征和名称
@@ -127,7 +127,7 @@ def main():
     save_faiss_index(index, args["faiss_index_file"])
 
     # 进行检索
-    query_image_paths = '/home/image-retrieval-vit/data/train/001_accordion_image_0003.jpg'  # 替换为实际图像路径
+    query_image_paths = 'data/train/001_accordion_image_0003.jpg'  # 替换为实际图像路径
     model = ViTNet()  # 使用之前定义的 ViTNet 类
     query_feats = model.vit_extract_feat(query_image_paths)
     faiss_index = load_faiss_index(args["faiss_index_file"])
