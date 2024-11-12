@@ -90,12 +90,12 @@ def retrieve_images(image):
         query_feats = query_feats.reshape(1, -1)
 
     h5_files = [
-        '/root/autodl-tmp/image-retrieval-vit/index/train-all-sheng.h5',
-        '/root/autodl-tmp/image-retrieval-vit/index/train-all-sheng.h5'
+        'index/train-all-sheng.h5',
+        'index/train-all-sheng.h5'
     ]
     index_files = [
-        '/root/autodl-tmp/image-retrieval-vit/index/faiss_index_1.index',
-        '/root/autodl-tmp/image-retrieval-vit/index/faiss_index_1.index'
+        'index/faiss_index_1.index',
+        'index/faiss_index_1.index'
     ]
 
     results = distributed_search(h5_files, index_files, query_feats, top_k=3)
@@ -119,7 +119,7 @@ def main():
     interface = gr.Interface(
         fn=retrieve_images,
         inputs=gr.Image(type="pil"),
-        outputs=[gr.Gallery(label="湖南省"), gr.Gallery(label="江苏省")],  # Use multiple galleries for different sources
+        outputs=[gr.Gallery(label="xxxx"), gr.Gallery(label="xxx1")],  # Use multiple galleries for different sources
         title="多省图像检索系统",
         # description="图像检索",
         theme="default",
