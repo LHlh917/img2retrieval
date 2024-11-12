@@ -5,4 +5,4 @@
 三：使用新图片进行检索
 
 ### 运行程序
-# python retrieval.py
+python retrieval.py
