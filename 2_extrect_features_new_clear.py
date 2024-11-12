@@ -96,15 +96,15 @@ def save_to_h5(feats, names, ids, serial_nums, index_file):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--index_file", type=str, default=os.path.join('/home/image-retrieval-vit', 'index', 'train-all-sheng.h5'), help="index file path.")
+    parser.add_argument("--index_file", type=str, default=os.path.join('index', 'train-all-sheng.h5'), help="index file path.")
     args = vars(parser.parse_args())
 
     cnx = mysql.connector.connect(
-        host="127.0.0.1",
-        port="3306",
-        user="root",
-        password="yikData@0829",
-        database="rechecking"
+        host=,
+        port=,
+        user=,
+        password=,
+        database=
     )
 
     feats = []
@@ -126,7 +126,7 @@ def main():
 
     for i in range(0, len(results), batch_size):
         batch_results = results[i:i+batch_size]
-        img_paths = ["https://jsbqtest-new.oss-cn-hangzhou.aliyuncs.com/" + row[1] for row in batch_results]
+        img_paths = [+ row[1] for row in batch_results]
         
         # 批量提取特征
         batch_feats, failed_images = model.vit_extract_feat_batch(img_paths)
@@ -136,7 +136,7 @@ def main():
         successful_results = [row for row, img_path in zip(batch_results, img_paths) if img_path not in failed_images]
         
         feats.extend(batch_feats)  # 只扩展成功提取的特征，因为 batch_feats 已经过滤过失败的图像
-        successful_names = ["https://jsbqtest-new.oss-cn-hangzhou.aliyuncs.com/" + row[1] for row in successful_results]
+        successful_names = [+ row[1] for row in successful_results]
         names.extend(successful_names)
         ids.extend([row[2] for row in successful_results])
         serial_nums.extend([row[3] for row in successful_results])
