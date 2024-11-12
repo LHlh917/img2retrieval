@@ -59,7 +59,7 @@ model = ViTNet()
 def image_retrieval(query_image, db_name):
     engine = 'faiss'
     # index_file = os.path.join(os.getcwd(), 'index', 'train-all-sheng.h5')
-    index_file = os.path.join(os.getcwd(), 'index', '/root/autodl-tmp/image-retrieval-vit/index/train-970000-sheng.h5')
+    index_file = os.path.join(os.getcwd(), 'index', 'index/train.h5')
 
     # 提取查询图像的特征
     t = time.time()
