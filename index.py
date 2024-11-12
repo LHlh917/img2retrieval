@@ -54,11 +54,11 @@ if __name__ == "__main__":
     args = vars(parser.parse_args())
     # 连接到数据库
     cnx = mysql.connector.connect(
-        host="192.168.1.104",
-        port="3306",
-        user="totoro",
-        password="123456",
-        database="rechecking"
+        host=,
+        port=,
+        user=,
+        password=,
+        database=
     )
 
     print("--------------------------------------------------")
@@ -72,7 +72,7 @@ if __name__ == "__main__":
     cursor = cnx.cursor()
 
     # 执行一个简单的 SQL 查询
-    query = "SELECT file_name,file_path FROM `t_worker_file_info` where file_type = 'work' and file_suffix = 'pic'"
+    query = ""
     cursor.execute(query)
 
     # 获取查询结果
@@ -81,7 +81,7 @@ if __name__ == "__main__":
     # 打印查询结果
     for img_name,row in results[:100]:
         i += 1
-        row = "https://jsbqtest-new.oss-cn-hangzhou.aliyuncs.com/" + row
+        row = row
         norm_feat = model.vit_extract_feat(row)
         # img_name = os.path.split(row)[1]
 
