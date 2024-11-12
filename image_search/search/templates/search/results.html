@@ -1,0 +1,42 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Top 3 Similar Images</h1>
+    {% for image, distance in images|zip:distances %}
+        <div>
+            <img src="{{ image.image.url }}" alt="{{ image.title }}" style="max-width: 200px;">
+            <p>{{ image.title }}</p>
+            <p>Similarity: {{ distance }}</p>
+        </div>
+    {% endfor %}
+    <a href="{% url 'index' %}">Search Again</a>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Top 3 Similar Images</h1>
+    {% for image_url, distance in combined_list %}
+        <div>
+            <img src="{{ image_url }}" alt="Image" style="max-width: 200px;">
+            <p>Similarity: {{ distance }}</p>
+        </div>
+    {% endfor %}
+    <a href="{% url 'index' %}">Search Again</a>
+</body>
+</html>
+
+
+
+
+
+
+

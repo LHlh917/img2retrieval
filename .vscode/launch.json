@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Django: Runserver",
+            "type": "python",
+            "request": "launch",
+            // "program": "/home/image-retrieval/image_search/manage.py",
+            "program": "${file}", 
+            // "args": [
+            //     "runserver",
+            //     "127.0.0.1:8000"  // 可以修改为你想要的端口或其他参数
+            // ],
+            "django": false,
+            "justMyCode": true
+        }
+    ]
+}
