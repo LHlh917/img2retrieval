@@ -36,11 +36,11 @@ index = 'IVF'
 
 ### 现在是加载各个省份的h5文件和索引结构
 if  index == 'IVF':
-    hunan_index = '/root/autodl-tmp/text-image-show/image_retrieval_vit/index/daopai_index.index'
+    hunan_index = 'index/daopai_index.index'
 if index == 'lsh':
-    hunan_index = '/root/autodl-tmp/text-image-show/image_retrieval_vit/index/lsh_index.index'
+    hunan_index = 'index/lsh_index.index'
 index = faiss.read_index(hunan_index)
-hunan_h5 = '/root/autodl-tmp/image-retrieval-vit/index/train-970000-sheng.h5'
+hunan_h5 = 'index/train.h5'
 with h5py.File(hunan_h5, 'r') as f:
     feats = np.array(f['dataset_1'])
     names = np.array(f['dataset_2'])
